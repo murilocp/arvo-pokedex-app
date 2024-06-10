@@ -3,7 +3,7 @@ import { PokemonAPIResponse, PokemonInfoResponse } from '@/types/pokemon';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: { pokemonName: string } },
 ) {
   const res = await fetch(
