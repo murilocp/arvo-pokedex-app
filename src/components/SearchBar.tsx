@@ -36,7 +36,6 @@ export default function SearchBar() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     const previousSearch = searchParams.get('name')?.toString();
     if (values.name !== previousSearch && values.name !== '') {
-      console.log(values);
       const params = new URLSearchParams(searchParams);
       params.set('name', values.name);
 

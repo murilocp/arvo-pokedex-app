@@ -18,8 +18,8 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
       </div>
     );
 
-  const response = await fetch(`http://localhost:3000/api/pokemon/${name}`, {
-    next: { revalidate: 3600 },
+  const response = await fetch(`${process.env.BFF_URL}pokemon/${name}`, {
+    next: { revalidate: 0 },
   });
 
   if (response.status === 404)
@@ -28,11 +28,8 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
         <h2>No Pokémon found! Please, try again.</h2>
       </div>
     );
-  console.log({ response });
 
-  const { data } = (await response.json()) as { data: PokemonInfoResponse };
-
-  console.log({ data });
+  const data = (await response.json()) as PokemonInfoResponse;
 
   return data ? (
     <div className='mt-6 bg-white dark:bg-gray-950 rounded-md shadow-md p-6'>
