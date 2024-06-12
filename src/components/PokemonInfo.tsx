@@ -18,9 +18,12 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
       </div>
     );
 
-  const response = await fetch(`${process.env.BFF_URL}pokemon/${name}`, {
-    next: { revalidate: 0 },
-  });
+  const response = await fetch(
+    `${process.env.BFF_URL}pokemon/${name?.toLowerCase()}`,
+    {
+      next: { revalidate: 0 },
+    },
+  );
 
   if (response.status === 404)
     return (
