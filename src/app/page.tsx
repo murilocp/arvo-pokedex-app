@@ -25,7 +25,7 @@ export default function Home({
           />
         </h1>
       </header>
-      <main className='flex-1 bg-gray-100 dark:bg-gray-800 p-6'>
+      <main className='flex-1 bg-gray-100 dark:bg-gray-800 px-2 pt-4 xs:px-6 xs:py-6'>
         <div className='max-w-2xl mx-auto'>
           <SearchBar />
           <Suspense key={searchParams?.name} fallback={<PokemonInfoSkeleton />}>

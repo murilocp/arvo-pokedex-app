@@ -32,15 +32,15 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
   const data = (await response.json()) as PokemonInfoResponse;
 
   return data ? (
-    <div className='mt-6 bg-white dark:bg-gray-950 rounded-md shadow-md p-6'>
+    <div className='mt-6 bg-white dark:bg-gray-950 rounded-md shadow-md p-3 xs:p-6'>
       <div>
         <h2 className='text-4xl font-bold text-center text-gray-900 dark:text-gray-50'>
           {data.name}
         </h2>
         <div className='mb-4 text-center'>Nº {data.id}</div>
       </div>
-      <div className='flex items-center justify-between'>
-        <div className='w-full h-full max-w-[40%] flex justify-center'>
+      <div className='flex flex-col xs:flex-row items-center justify-between'>
+        <div className='w-full h-full mb-6 xs:mb-0 xs:max-w-[40%] flex justify-center'>
           <Image
             src={data.image}
             width={200}
@@ -49,7 +49,7 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
           />
         </div>
 
-        <div className='rounded-xl ml-6 h-full w-full px-6 py-4 bg-[#DFDFDF] max-w-[60%]'>
+        <div className='rounded-xl xs:ml-6 h-full w-full px-6 py-4 bg-[#DFDFDF] xs:max-w-[60%]'>
           <ul className='grid grid-cols-2 mb-4'>
             <InfoItem label='Height'>{data.height} m</InfoItem>
             <InfoItem label='Weight'>{data.weight} Kg</InfoItem>
@@ -77,7 +77,7 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
         </div>
       </div>
 
-      <div className='mt-6 max-w-[90%] mx-auto rounded-lg px-6 py-4'>
+      <div className='mt-6 max-w-[90%] mx-auto rounded-lg'>
         <h3 className='text-2xl mb-4 font-bold text-gray-900 dark:text-gray-50'>
           Stats
         </h3>
