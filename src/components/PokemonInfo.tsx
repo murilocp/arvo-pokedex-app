@@ -45,7 +45,7 @@ export default async function PokemonInfo({ name }: PokemonInfoProps) {
       <div className='flex flex-col xs:flex-row items-center justify-between'>
         <div className='w-full h-full mb-6 xs:mb-0 xs:max-w-[40%] flex justify-center'>
           <Image
-            src={data.image}
+            src={data?.image}
             width={200}
             height={300}
             alt='Pokemon Image'
